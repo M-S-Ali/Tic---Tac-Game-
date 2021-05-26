@@ -9,7 +9,7 @@ moves = set()
 def printc(txt): print(f'\t\t\t\t\t{txt:^25}')
 
 
-def game_board_printc():
+def game_board_print():
     # printc('\n'*100)
     printc(' ' + f"{'_' * 7} " * 3)
     printc('|' + f"{' '*7}|"*3)
@@ -56,7 +56,7 @@ printc("TIC - TAC GAME")
 while True:
     data = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
     moves = {(0, 0)}
-    game_board_printc()
+    game_board_print()
     player = random.choice((1, -1))
     for i in range(0, 9):
         if player == -1:
@@ -68,12 +68,12 @@ while True:
         printc(f"{turn} Turn")
         printc(f"{'*'*25}")
         player_input_data_update(turn_symbl)
-        game_board_printc()
+        game_board_print()
         if check4victory():
             printc(f"{turn.upper()} WON\n")
             break
         player *= -1
     else:
         printc("Draw Game")
-    if input("\nDo You Want to Play Again [Y/N]: ").upper() != 'Y':
+    if input("\n\t\t\t\t\tDo You Want to Play Again [Y/N]: ").upper() != 'Y':
         break
